@@ -1,5 +1,22 @@
 package com.company;
 
+class Car
+{
+    final String model;
+    final String producer;
+
+    private int year =2019;
+    private Double weight=1500.50;
+
+    Car(String model, String producer)
+    {
+        this.model = model;
+        this.producer = producer;
+
+
+    }
+}
+
 class Animal
 {
     final String species;
@@ -51,9 +68,8 @@ class Animal
 
 class Human
 {
-    Human (Animal pet)
+    Human (Animal pet, Car car)
     {
-
     }
 
 }
@@ -68,7 +84,10 @@ public class Main {
     public static void main(String[] args) {
         Animal zwierze = new Animal("Pies");
         Animal zwierze2 = new Animal("Kot");
-        Human human = new Human(zwierze);
+
+        Car samochod = new Car("Malaga","Seat");
+        Human czlowiek = new Human(zwierze, samochod);
+
         zwierze.feed();
         for(int i=0;i<10;i++)
             zwierze.takeForAWalk();
