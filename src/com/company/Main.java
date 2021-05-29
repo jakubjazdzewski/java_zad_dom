@@ -8,10 +8,13 @@ class Car
     private int year =2019;
     private Double weight=1500.50;
 
-    Car(String model, String producer)
+    final Double value;
+
+    Car(String model, String producer, Double value)
     {
         this.model = model;
         this.producer = producer;
+        this.value = value;
 
 
     }
@@ -88,9 +91,34 @@ class Human
         }
     }
 
+    private Car carVariable;
 
-    Human (Animal pet, Car car)
+    Human (Animal pet, Car carVariable)
     {
+        this.carVariable = carVariable;
+    }
+
+    public Car getCar()
+    {
+        return this.carVariable;
+    }
+
+    public void setCar(Car carVariable)
+    {
+        if(salary>this.carVariable.value)
+        {
+            System.out.println("Udalo sie kupic samochod");
+            this.carVariable = carVariable;
+        }
+        else if (salary>(carVariable.value/12.0))
+        {
+            System.out.println("udało się kupić na kredyt (no trudno)");
+            this.carVariable = carVariable;
+        }
+        else
+        {
+            System.out.println("zapisz się na studia i znajdź nową robotę albo idź po podwyżkę");
+        }
     }
 
 }
@@ -106,7 +134,7 @@ public class Main {
         Animal zwierze = new Animal("Pies");
         Animal zwierze2 = new Animal("Kot");
 
-        Car samochod = new Car("Malaga","Seat");
+        Car samochod = new Car("Malaga","Seat", 2700.49);
         Human czlowiek = new Human(zwierze, samochod);
 
         /*
